@@ -1,0 +1,14 @@
+version: '3.6'
+services:
+  server:
+    build:
+      context: ./docker/server
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/Dockerfile
+    environment:
+      - NODE_ENV=production
